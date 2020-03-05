@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC2-worker</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>2d359394-6770-4fb3-ac1e-c8d5b9e72824</testCaseGuid>
+   <variable>
+      <defaultValue>0</defaultValue>
+      <description></description>
+      <id>cbd3579a-114c-4d34-b055-a4df79a5fbad</id>
+      <masked>false</masked>
+      <name>key</name>
+   </variable>
+</TestCaseEntity>
