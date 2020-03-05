@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project>
    <description></description>
-   <name>ExecutingMultipleTestCasesInThreads</name>
+   <name>OpeningMultipleWindowsOfABrowserInATestCaseOfKatalonStudio</name>
    <tag></tag>
    <UUID>fee4e7d3-da80-4e1b-ba62-4ab1235b82f8</UUID>
    <migratedVersion>5.9.0</migratedVersion>
