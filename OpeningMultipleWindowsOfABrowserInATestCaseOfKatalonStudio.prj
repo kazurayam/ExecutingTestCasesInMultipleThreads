@@ -6,7 +6,7 @@
    <UUID>fee4e7d3-da80-4e1b-ba62-4ab1235b82f8</UUID>
    <migratedVersion>5.9.0</migratedVersion>
    <pageLoadTimeout>0</pageLoadTimeout>
-   <projectFileLocation>/Users/kazuakiurayama/katalon-workspace/ExecutingTestCasesInMultipleThreads/ExecutingMultipleTestCasesInThreads.prj</projectFileLocation>
+   <projectFileLocation>/Users/kazuakiurayama/katalon-workspace/OpeningMultipleWindowsOfABrowserInATestCaseOfKatalonStudio/ExecutingMultipleTestCasesInThreads.prj</projectFileLocation>
    <sourceContent>
       <sourceFolderList>
          <sourceFolderConfiguration>
