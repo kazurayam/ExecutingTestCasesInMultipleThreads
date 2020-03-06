@@ -1,16 +1,10 @@
 import com.kazurayam.ks.ThreadedURLVisitor
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
-Closure cls = { urlList ->
-	WebUI.openBrowser('')
-	WebUI.setViewPortSize(700,300)
-	for (url in urlList) {
-		WebUI.navigateToUrl(url)
-		WebUI.delay(3)
-	}
-	WebUI.closeBrowser()
-}
-
+/**
+ * Example of visiting a bunch of URLs opening multiple browser windows parallelly
+ * 
+ */
 List<String> URL_LIST = [
 	"https://forum.katalon.com/",
 	"https://forum.katalon.com/top",
@@ -27,5 +21,16 @@ List<String> URL_LIST = [
 	"https://officialhospitality.tokyo2020.org/?lang=ja&gclid=CjwKCAiA44LzBRB-EiwA-jJipEK4i8cS4cf5FMpOtLXMR1RalBGwacM8BiYspjdMMD9OWEGi03cJVhoCcpoQAvD_BwE"
 ]
 
-// Now let's open/close URLs in 4 browser windows
-ThreadedURLVisitor.execute(4, cls, URL_LIST)
+Closure closure = { urlList ->
+	WebUI.openBrowser('')
+	WebUI.setViewPortSize(700,300)
+	for (url in urlList) {
+		WebUI.navigateToUrl(url)
+		// do whatever you want here
+		WebUI.delay(3)
+	}
+	WebUI.closeBrowser()
+}
+
+// Now let's visit URLs in 4 browser windows
+ThreadedURLVisitor.execute(4, URL_LIST, closure)

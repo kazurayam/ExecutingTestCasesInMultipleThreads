@@ -1,3 +1,0 @@
-ThrededURLVisitor for Katalon Studio
-==========
-
