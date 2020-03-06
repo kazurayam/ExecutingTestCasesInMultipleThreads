@@ -1,43 +1,14 @@
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
-import java.util.concurrent.TimeUnit
-
+import com.kazurayam.ks.ThreadedURLVisitor
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import java.lang.Runnable
-
-/**
- * refered to https://devs.nobushige.net/groovy/15/
- * 
- * @param status
- * @return
- */
-def log(status) {
-	println "[${Thread.currentThread().name}][${new Date().format('HH:mm:ss.SSS')}] ${status}"
-}
-
-def execute(int numThreads, Closure cls, List<String> urlList) {
-	ExecutorService service = Executors.newFixedThreadPool(numThreads) 
-	int collateTo = (urlList.size() / numThreads) + 1
-	List<List<String>> groups = urlList.collate(collateTo)
-	(0..<groups.size()).each { i ->
-		service.execute(cls.curry(groups[i]))
-		Thread.sleep(20)
-	}
-	service.shutdown()
-	log 'awaiting'
-	service.awaitTermination(1, TimeUnit.MINUTES)
-	log 'await completed'
-}
 
 Closure cls = { urlList ->
-	log "Executor started for ${urlList}"
 	WebUI.openBrowser('')
+	WebUI.setViewPortSize(700,300)
 	for (url in urlList) {
 		WebUI.navigateToUrl(url)
 		WebUI.delay(3)
 	}
 	WebUI.closeBrowser()
-	log "Executor finished for ${urlList}"
 }
 
 List<String> URL_LIST = [
@@ -56,5 +27,5 @@ List<String> URL_LIST = [
 	"https://officialhospitality.tokyo2020.org/?lang=ja&gclid=CjwKCAiA44LzBRB-EiwA-jJipEK4i8cS4cf5FMpOtLXMR1RalBGwacM8BiYspjdMMD9OWEGi03cJVhoCcpoQAvD_BwE"
 ]
 
-// Now let's open URLs in 5 windows of Browser
-execute(5, cls, URL_LIST)　　　　　　　　　　　　　　　　　　
+// Now let's open/close URLs in 4 browser windows
+ThreadedURLVisitor.execute(4, cls, URL_LIST)
